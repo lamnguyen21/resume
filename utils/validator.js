@@ -1,5 +1,8 @@
 function validateInput(input) {
-  if (!input.name) {
+  if (!input) {
+    return new ValidationError(-4);
+  }
+  else if (!input.name) {
     return new ValidationError(-5);
   }
   else if (!input.jobTitle) {

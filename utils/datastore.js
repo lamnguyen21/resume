@@ -8,6 +8,10 @@ function JSONDataStore() {
   this.data = {};
 
   this.save = (json) => {
+    if (!json) {
+      return null;
+    }
+
     const id = generateID(JSON.stringify(json));
     this.data[id] = json;
 

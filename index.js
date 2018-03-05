@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -6,6 +7,7 @@ const {validateInput, ValidationError} = require('./utils/validator');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, '../resume-client/build')));
 
 app.post('/api/uploadResumeDetails', (req, res, next) => {
   const input = req.body;
